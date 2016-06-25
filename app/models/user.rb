@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
     array = []
     while true do
-      friends.shuffle!
+      friends.to_a.shuffle!
       array = users.zip(friends)
 
       break if array.all? do |(u, f)|
