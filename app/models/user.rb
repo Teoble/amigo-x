@@ -6,18 +6,29 @@ class User < ActiveRecord::Base
   belongs_to :friend, class_name: 'User', foreign_key: 'user_id'
 
   def self.raffle(users)
-    ret = false
-    if users.count==3
-      ret = true
-    else
-      ret = false
-    end
-    friends= Array(users)
+    return false if users.count < 3
 
-    users.each do |user|
-      #friends.shuffle!(Time.now.to_i)
+    friends = users.dup
 
+    array = []
+    while true do
+      friends.shuffle!
+      array = users.zip(friends)
+
+      break if array.all? do |(u, f)|
+        u.match?(f)
+      end
     end
-    return ret
+
+    array.each do |(u, f)|
+      u.friend = f
+      u.save
+    end
+
+    true
+  end
+
+  def match?(possible_friend)
+    self != possible_friend
   end
 end
