@@ -10,13 +10,14 @@ describe User do
       # user = User.new({name: 'jose', email: 'email@email.com'})
       expect(user.valid?).to be false
     end
+  end
   #pending "add some examples to (or delete) #{__FILE__}"
   context 'raffling' do
     it 'should have at least three users' do
-      users = [ create(:user, name: 'Jose', email: 'webgoal@webgoal.com')]
+      users = [create(:user_mail_valid)]
       expect(User.raffle(users)).to be false
-      users << create(:user, name: 'Jose', email: 'webgoal@webgoal.com')
-      users << create(:user, name: 'Jose', email: 'webgoal@webgoal.com')
+      users << create(:user_mail_valid, email: 'teste@teste.com')
+      users << create(:user_mail_valid, email: 'teste1@teste.com')
       expect(User.raffle(users)).to be true
     end
     it 'have a match' do
