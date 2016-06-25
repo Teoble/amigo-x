@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+<<<<<<< HEAD
   belongs_to :friend, class_name: 'User', foreign_key: 'user_id'
 
   def self.raffle(users)
@@ -15,4 +16,9 @@ class User < ActiveRecord::Base
     end
 
   end
+=======
+  validates :email, presence: true, uniqueness:true
+  validates :name, presence: true
+  validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+>>>>>>> 381bcb6557cba6f12b49e103777b9fd813c40f32
 end

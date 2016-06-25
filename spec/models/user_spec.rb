@@ -1,6 +1,15 @@
-require 'rails_helper'
-
 describe User do
+  context "validate mail" do
+    it "test if mail is valid" do
+      user = create(:user_mail_valid)
+      # user = User.new({name: 'jose', email: 'email@email.com'})
+      expect(user.valid?).to be true
+    end
+    it "test if mail is not valid" do
+      user = build(:user_mail_not_valid)
+      # user = User.new({name: 'jose', email: 'email@email.com'})
+      expect(user.valid?).to be false
+    end
   #pending "add some examples to (or delete) #{__FILE__}"
   context 'raffling' do
     it 'should have at least three users' do
