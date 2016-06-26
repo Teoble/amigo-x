@@ -64,7 +64,7 @@ class UsersController < ApplicationController
   def raffle
     # render :nothing => true
     User.raffle(User.all)
-    User.all.each do |u| UserMailer.notify(u) end
+    
     redirect_to controller: 'users', action:'index'
   end
 

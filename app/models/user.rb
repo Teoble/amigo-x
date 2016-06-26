@@ -25,8 +25,19 @@ class User < ActiveRecord::Base
 
     array.each do |(u, f)|
       u.friend = f
-      u.raffled = true
       u.save
+    end
+
+    users.each do |u|
+      if u.raffled?
+        UserMailer.notify2(u).deliver_now
+      else
+        UserMailer.notify(u).deliver_now
+      end
+    end
+
+    users.each do |u|
+      u.update(:raffled => true)
     end
 
     true

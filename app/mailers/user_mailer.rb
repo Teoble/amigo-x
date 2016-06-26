@@ -8,6 +8,11 @@ class UserMailer < ApplicationMailer
 		#@grupo = grupo
 		#mail to: 'teste@teste.com', subject: "Atenção!!! Veja quem será seu Amigo-X!"
 		mail to: user.email, subject: "Atenção!!! Veja quem será seu Amigo-X!"
+	end
 
+	def notify2(user)
+		@user = user
+
+		mail to: user.email, subject: "Atenção!!! Veja quem será seu novo Amigo-X!"
 	end
 end
