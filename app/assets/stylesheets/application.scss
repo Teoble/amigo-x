@@ -1,4 +1,4 @@
-/*
+  /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -30,4 +30,16 @@
 
 .users_buttons form{
   display: inline-block;
+}
+
+.alterar, .alterar:visited{
+  color:#f0ad4e;
+}
+
+.tirar, .tirar:visited{
+  color: red;
+}
+
+.alterar:hover, .tirar:hover{
+  background-color: #fff; 
 }
