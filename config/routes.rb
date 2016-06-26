@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :murals
   resources :users do
     collection do
       get "raffle" => "users#raffle"
