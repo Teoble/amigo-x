@@ -64,6 +64,7 @@ class UsersController < ApplicationController
   def raffle
     # render :nothing => true
     User.raffle(User.all)
+    redirect_to controller: 'users', action:'index'
   end
 
   private
