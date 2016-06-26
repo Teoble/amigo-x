@@ -15,13 +15,17 @@
 
 </div>
 	<br>O seu amigo secreto é...
+
 	<br><br><br>
 
 	<div>
 	<image src="http://dev.amigox.net/assets/gift.png" width="300px" </image>
 	</div>
 	<br><font style b><font color="#FFAC64"><font size="7"> <%= @user.friend.try(:name) %></font>
+
 	</font>
+	<br>
+		 Segue link para o mural de mensagens do Amigo Secreto <%= link_to 'Mural de Mensagens', murals_path %>
 
 
 

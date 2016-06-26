@@ -24,11 +24,11 @@ RSpec.describe MuralsController, type: :controller do
   # Mural. As you add validations to Mural, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    { mensagem: 'Olá' }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { mensagem: '' }
   }
 
   # This should return the minimal set of values that should be in the session
