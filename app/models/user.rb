@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
   belongs_to :friend, class_name: 'User', foreign_key: 'user_id'
+  has_one :user, foreign_key: 'user_id', dependent: :nullify
+
+  after_destroy :clean_friend
 
   def self.raffle(users)
     return false if users.count < 3
@@ -31,4 +34,9 @@ class User < ActiveRecord::Base
   def match?(possible_friend)
     self != possible_friend
   end
+
+  def clean_friend
+    User.update_all(:user_id => nil)
+  end
+
 end
