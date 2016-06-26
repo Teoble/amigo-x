@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nome:</strong>
   <%= @user.name %>
 </p>
 
@@ -11,9 +11,9 @@
 </p>
 
 <p>
-  <strong>Friend:</strong>
+  <strong>Amigo Secreto:</strong>
   <%= @user.friend.try(:name) %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Editar', edit_user_path(@user) %> |
+<%= link_to 'Voltar', users_path %>
