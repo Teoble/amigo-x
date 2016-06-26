@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Murals</h1>
+<h1>Mural de Mensagens</h1>
 
 <table>
   <thead>
@@ -14,9 +14,9 @@
     <% @murals.each do |mural| %>
       <tr>
         <td><%= mural.mensagem %></td>
-        <td><%= link_to 'Show', mural %></td>
-        <td><%= link_to 'Edit', edit_mural_path(mural) %></td>
-        <td><%= link_to 'Destroy', mural, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', mural %></td>
+        <td><%= link_to 'Editar', edit_mural_path(mural) %></td>
+        <td><%= link_to 'Destruir', mural, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Mural', new_mural_path %>
+<%= link_to 'Novo Mural', new_mural_path %>
