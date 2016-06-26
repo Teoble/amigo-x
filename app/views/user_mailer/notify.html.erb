@@ -12,5 +12,9 @@
 	<br>O seu amigo secreto é...
 	<br><br><br><br><br><br><br><br>
 	 <br> <font style b><font color="black"><font size="5"> <%= @user.friend.try(:name) %></font>
+
+	 <br>
+	    Segue link para o mural de mensagens do Amigo Secreto <%= link_to 'Mural de Mensagens', murals_path %>
+
 	</font>
 </P>
