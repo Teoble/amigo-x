@@ -60,5 +60,14 @@ describe User do
 
       expect(User.all.all? {|u| u.friend.blank?}).to be true
     end
+
+    it 'should be raffled' do
+      do_valid_raffle
+      many_users.first.destroy
+      do_valid_raffle
+      expect(User.all.all? {|u| u.raffled?}).to be true
+    end
   end
+
+
 end

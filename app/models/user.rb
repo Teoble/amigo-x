@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
 
     array.each do |(u, f)|
       u.friend = f
+      u.raffled = true
       u.save
     end
 
