@@ -1,11 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Amigo Secreto</h1>
-<div>
-  <%= link_to 'Sortear', raffle_users_path %>
-  <%= link_to 'Novo Usuário', new_user_path %>
+<div class="users_buttons">
+  <%= button_to 'Novo Usuário', new_user_path, class: 'btn btn-success' %>
+  <%= button_to 'Sortear', raffle_users_path, class: 'btn btn-primary' %>
+</end>
 </div>
-<table>
+<table class="table table-inverse">
   <thead>
     <tr>
       <th>Nome</th>
