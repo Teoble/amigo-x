@@ -5,6 +5,7 @@ class MuralsController < ApplicationController
   # GET /murals.json
   def index
     @murals = Mural.all
+    @mural = Mural.new
   end
 
   # GET /murals/1
@@ -14,7 +15,7 @@ class MuralsController < ApplicationController
 
   # GET /murals/new
   def new
-    @mural = Mural.new
+
   end
 
   # GET /murals/1/edit
@@ -28,7 +29,7 @@ class MuralsController < ApplicationController
 
     respond_to do |format|
       if @mural.save
-        format.html { redirect_to @mural, notice: 'Mural was successfully created.' }
+        format.html { redirect_to murals_path, notice: 'Mural was successfully created.' }
         format.json { render :show, status: :created, location: @mural }
       else
         format.html { render :new }
@@ -37,8 +38,6 @@ class MuralsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /murals/1
-  # PATCH/PUT /murals/1.json
   def update
     respond_to do |format|
       if @mural.update(mural_params)

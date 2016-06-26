@@ -2,7 +2,7 @@
 
 <h1>Mural de Mensagens</h1>
 
-<table>
+<table class="table table-inverse">
   <thead>
     <tr>
       <th>Mensagem</th>
@@ -14,14 +14,12 @@
     <% @murals.each do |mural| %>
       <tr>
         <td><%= mural.mensagem %></td>
-        <td><%= link_to 'Mostrar', mural %></td>
+        <!-- <td><%= link_to 'Mostrar', mural %></td>
         <td><%= link_to 'Editar', edit_mural_path(mural) %></td>
-        <td><%= link_to 'Destruir', mural, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        <td><%= link_to 'Destruir', mural, method: :delete, data: { confirm: 'Você tem certeza?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'Nova Mensagem', new_mural_path %>
+<%= render 'form' %>
