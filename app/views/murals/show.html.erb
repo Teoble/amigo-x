@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mensagem:</strong>
+  <%= @mural.mensagem %>
+</p>
+
+<%= link_to 'Editar', edit_mural_path(@mural) %> |
+<%= link_to 'Voltar', murals_path %>
