@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Mural de Mensagens</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mensagem</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @murals.each do |mural| %>
+      <tr>
+        <td><%= mural.mensagem %></td>
+        <td><%= link_to 'Mostrar', mural %></td>
+        <td><%= link_to 'Editar', edit_mural_path(mural) %></td>
+        <td><%= link_to 'Destruir', mural, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Novo Mural', new_mural_path %>
