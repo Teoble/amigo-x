@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'Usuário foi adicionado com sucesso!' }
+        format.html { redirect_to users_url, notice: 'Usuário foi adicionado com sucesso!' }
         format.json { render :show, status:'createdEmail is invalid', location: @user }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'Usuário foi atualizado!' }
+        format.html { redirect_to users_url notice: 'Usuário foi atualizado!' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -64,7 +64,6 @@ class UsersController < ApplicationController
   def raffle
     # render :nothing => true
     User.raffle(User.all)
-    User.all.each do |u| UserMailer.notify(u) end
     redirect_to controller: 'users', action:'index'
   end
 
